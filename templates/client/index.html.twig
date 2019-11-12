@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+    <h1>Client index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Sommaire</th>
+{#            <th>Date</th>#}
+            <th>Description</th>
+            <th>Lieu</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.summary }}</td>
+{#                <td>{{ eventdatetime.date }}</td>#}
+                <td>{{ event.description | raw }}</td>
+                <td>{{ event.location }}</td>
+            </tr>
+            <style>td, tr{border: 2px solid  #0d5aa7}
+                h1{background-color: rgba(0, 191, 255, 0.2);}
+            </style>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{{ dump(events) | raw }}
+
+
+{% endblock %}
